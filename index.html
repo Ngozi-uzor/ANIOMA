@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Anioma Truth Project | Igbo Bu Ofu</title>
-    <meta name="description"
-        content="A Proclamation of Blood and Memory. Exploring the Anioma identity and the undeniable truth of Igbo heritage.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <meta name="description" content="Igbo Bu Ofu - The story of the Anioma people, their Igbo identity, and the call for reunification.">
+    <meta name="keywords" content="Igbo, Anioma, Nigeria, Delta State, Culture, Identity, Reunification, Enuani, Biafra, History">
+    <meta name="author" content="Uzor Blessing Ngozi">
+    <title>Igbo Bu Ofu! - The Anioma Story: Identity, History & Reunification</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+
         :root {
+            --primary-yellow: #FFF9E6;
+            --secondary-yellow: #FFEAA7;
             --gold: #FFD700;
-            --gold-dim: #bfa300;
-            --black: #060606;
-            --dark-grey: #121212;
-            --text-main: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --glass: rgba(255, 255, 255, 0.05);
-            --border: rgba(255, 215, 0, 0.3);
-            --font-heading: 'Cinzel', serif;
-            --font-body: 'Inter', sans-serif;
-            --transition: all 0.4s ease-out;
+            --accent-blue: #3498db;
+            --deep-blue: #1A237E;
+            --indigo: #283593;
+            --soft-orange: #FF9F43;
+            --coral: #FF6B6B;
+            --light-orange: #FFD9B3;
+            --white: #FFFFFF;
+            --off-white: #F8F9FA;
+            --light-gray: #F5F5F5;
+            --dark-gray: #424242;
+            --success-green: #2ECC71;
+            --forest-green: #228B22;
+            --shadow: rgba(44, 62, 80, 0.15);
+            --text-dark: #222222;
+            --text-light: #555555;
         }
 
         * {
@@ -33,685 +38,1459 @@
             box-sizing: border-box;
         }
 
-        body {
-            background-color: var(--black);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            line-height: 1.8;
-            overflow-x: hidden;
-            font-size: 18px;
+        html {
+            scroll-behavior: smooth;
         }
 
-        .noise-overlay {
+        body {
+            font-family: 'Merriweather', serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--light-orange) 50%, #E8F4F8 100%);
+            min-height: 100vh;
+            padding: 20px;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        /* Animated background elements */
+        .bg-pattern {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0ibm9uZTsiPjwvcmVjdD48ZyBmaWxsPSIjRkZGIiBvcGFjaXR5PSIwLjAzIj48Y2lyY2xlIGN4PSIxMCIgY3k9IjEwIiByPSIxIi8+PC9nPjwvc3ZnPg==');
             pointer-events: none;
-            z-index: 999;
+            z-index: -1;
+            opacity: 0.05;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 234, 167, 0.3) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(52, 152, 219, 0.2) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(255, 159, 67, 0.2) 0%, transparent 30%);
         }
 
-        /* Typography */
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: var(--font-heading);
-            color: #fff;
-            margin-bottom: 1rem;
-            line-height: 1.3;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(44, 62, 80, 0.25);
+            position: relative;
+            border: 1px solid rgba(255, 250, 240, 0.8);
+            transform: translateY(20px);
+            opacity: 0;
+            animation: containerEntrance 1s ease forwards;
         }
 
-        h1 {
-            font-size: 4rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        @keyframes containerEntrance {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
-        h2 {
-            font-size: 2.5rem;
-            color: var(--gold);
+        /* Decorative Elements */
+        .container:before, .container:after {
+            content: '';
+            position: absolute;
+            height: 6px;
+            z-index: 10;
         }
 
-        h3 {
-            font-size: 1.8rem;
-            margin-top: 2rem;
-            border-left: 3px solid var(--gold);
-            padding-left: 1rem;
+        .container:before {
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, var(--accent-blue) 0%, var(--forest-green) 33%, var(--soft-orange) 66%, var(--coral) 100%);
+            animation: borderGlow 3s infinite alternate;
         }
 
-        .highlight-text {
-            color: var(--gold);
+        .container:after {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(90deg, var(--coral) 0%, var(--soft-orange) 33%, var(--forest-green) 66%, var(--accent-blue) 100%);
+            animation: borderGlow 3s infinite alternate-reverse;
         }
 
-        .gold-text {
-            color: var(--gold);
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        @keyframes borderGlow {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        /* Ribbon decoration */
+        .ribbon {
+            position: absolute;
+            top: 30px;
+            right: -30px;
+            background: var(--coral);
+            color: white;
+            padding: 10px 40px;
+            transform: rotate(45deg);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 100;
         }
 
         /* Header */
-        .main-header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        header {
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--indigo) 50%, var(--accent-blue) 100%);
+            color: var(--white);
+            padding: 80px 40px 60px;
             text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #000 70%);
             position: relative;
-            border-bottom: 1px solid var(--border);
+            overflow: hidden;
         }
 
-        .logo {
+        header:before {
+            content: '';
             position: absolute;
-            top: 2rem;
-            left: 2rem;
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: 2px;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px),
+                radial-gradient(circle, rgba(255,234,167,0.05) 1px, transparent 1px);
+            background-size: 50px 50px, 70px 70px;
+            opacity: 0.3;
+            animation: subtleShift 30s infinite linear;
         }
 
-        .nav-links {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            list-style: none;
-            display: flex;
-            gap: 2rem;
+        @keyframes subtleShift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
         }
 
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 0.9rem;
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--gold) 20%, var(--secondary-yellow) 40%, var(--soft-orange) 60%, var(--gold) 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+            display: inline-block;
             letter-spacing: 1px;
-            transition: var(--transition);
         }
 
-        .nav-links a:hover {
+        h1:after {
+            content: '✦';
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
             color: var(--gold);
-        }
-
-        .hero-content h1 {
-            animation: fadeUp 1s ease-out;
+            font-size: 1.2em;
+            letter-spacing: 15px;
+            opacity: 0.8;
         }
 
         .subtitle {
-            font-size: 1.5rem;
-            color: var(--text-muted);
+            font-size: 1.6em;
             font-style: italic;
-            margin-bottom: 2rem;
-            animation: fadeUp 1s ease-out 0.2s backwards;
+            color: var(--secondary-yellow);
+            margin: 30px auto 40px;
+            max-width: 800px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            position: relative;
+            padding: 0 20px;
         }
 
-        .scroll-indicator {
+        .subtitle:before, .subtitle:after {
+            content: '~';
             position: absolute;
-            bottom: 3rem;
-            animation: bounce 2s infinite;
-            opacity: 0.6;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            font-size: 1.8em;
         }
 
-        /* Sections */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
+        .subtitle:before { left: 0; }
+        .subtitle:after { right: 0; }
+
+        /* Navigation */
+        .page-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 40px 0 20px;
+            padding: 0 40px;
         }
 
-        .content-section {
-            margin-bottom: 8rem;
+        .nav-item {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 0.9em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .nav-item i {
+            margin-right: 8px;
+            font-size: 0.9em;
+        }
+
+        /* Headings */
+        h2 {
+            color: var(--deep-blue);
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            margin: 70px 0 35px;
+            padding: 0 50px;
+            position: relative;
+            line-height: 1.3;
+        }
+
+        h2:before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            bottom: -10px;
+            width: 120px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--forest-green), var(--soft-orange));
+            border-radius: 3px;
+        }
+
+        h3 {
+            color: var(--indigo);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8em;
+            margin: 45px 50px 25px;
+            padding-left: 25px;
+            border-left: 6px solid var(--secondary-yellow);
+            background: linear-gradient(to right, rgba(255, 234, 167, 0.15), transparent);
+            padding: 18px 25px;
+            border-radius: 0 12px 12px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h3:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+        }
+
+        h3:hover:after {
+            animation: shine 1.5s;
+        }
+
+        @keyframes shine {
+            100% { transform: translateX(100%); }
+        }
+
+        /* Paragraphs */
+        p {
+            margin: 0 50px 30px;
+            font-size: 1.15em;
+            color: var(--text-light);
+            text-align: justify;
+            line-height: 1.9;
+        }
+
+        /* Highlight Box */
+        .highlight {
+            background: linear-gradient(135deg, rgba(255, 249, 230, 0.9) 0%, rgba(255, 234, 167, 0.9) 100%);
+            padding: 35px 45px;
+            margin: 40px 50px;
+            border-radius: 18px;
+            border-left: 8px solid var(--accent-blue);
+            box-shadow: 0 12px 35px var(--shadow);
+            position: relative;
+            transform: translateY(0);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .highlight:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-blue), var(--forest-green), var(--soft-orange));
+        }
+
+        .highlight:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(44, 62, 80, 0.2);
+        }
+
+        .highlight p {
+            margin: 0;
+            font-size: 1.2em;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.08) 0%, rgba(34, 139, 34, 0.08) 100%);
+            padding: 40px 50px;
+            margin: 50px;
+            border-radius: 18px;
+            border: 2px solid rgba(52, 152, 219, 0.3);
+            font-style: italic;
+            font-size: 1.3em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-box:before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 6em;
+            color: rgba(52, 152, 219, 0.15);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .quote-box:after {
+            content: '"';
+            position: absolute;
+            bottom: 10px;
+            right: 20px;
+            font-size: 6em;
+            color: rgba(52, 152, 219, 0.15);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .quote-author {
+            text-align: right;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--indigo);
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        /* Image Placeholders */
+        .image-placeholder {
+            background: linear-gradient(135deg, rgba(255, 249, 230, 0.9) 0%, rgba(255, 234, 167, 0.9) 100%);
+            height: 300px;
+            margin: 40px 50px;
+            border-radius: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-gray);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4em;
+            border: 3px dashed rgba(255, 159, 67, 0.4);
+            text-align: center;
+            padding: 30px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder i {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: var(--soft-orange);
+            opacity: 0.8;
+        }
+
+        .image-placeholder:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 15px,
+                rgba(255, 159, 67, 0.05) 15px,
+                rgba(255, 159, 67, 0.05) 30px
+            );
+        }
+
+        .image-placeholder:hover {
+            border-color: var(--accent-blue);
+            transform: scale(1.02) rotate(0.5deg);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .image-placeholder.large {
+            height: 350px;
+            font-size: 1.6em;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(46, 204, 113, 0.1) 100%);
+        }
+
+        .image-placeholder.small {
+            height: 200px;
+            font-size: 1.2em;
+            margin: 30px 50px;
+        }
+
+        /* Name List */
+        .name-list {
+            background: var(--off-white);
+            padding: 30px 40px;
+            margin: 35px 50px;
+            border-radius: 15px;
+            border: 2px solid var(--secondary-yellow);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
+
+        .name-list ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .name-list li {
+            padding: 15px 25px;
+            margin: 0;
+            background: var(--white);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2em;
+            color: var(--deep-blue);
+            border-left: 5px solid var(--success-green);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .name-list li:before {
+            content: '▶';
+            margin-right: 15px;
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .name-list li:hover {
+            transform: translateX(10px) translateY(-3px);
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--white) 100%);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: calc(100% - 100px);
+            margin: 50px;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--indigo) 100%);
+            color: var(--white);
+            padding: 25px 20px;
+            text-align: left;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .comparison-table th:first-child {
+            border-top-left-radius: 18px;
+        }
+
+        .comparison-table th:last-child {
+            border-top-right-radius: 18px;
+        }
+
+        .comparison-table td {
+            padding: 22px 20px;
+            border: 1px solid rgba(52, 152, 219, 0.1);
+            font-size: 1.15em;
+            background: var(--white);
+            transition: all 0.2s ease;
+        }
+
+        .comparison-table tr:nth-child(even) td {
+            background: rgba(255, 249, 230, 0.4);
+        }
+
+        .comparison-table tr:hover td {
+            background: var(--primary-yellow);
+            transform: scale(1.01);
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            margin: 60px 50px;
+            padding: 30px 0;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-blue), var(--forest-green), var(--soft-orange));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 6px solid var(--accent-blue);
+            position: relative;
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: -15px;
+            background: var(--deep-blue);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.1em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: -50px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            left: -50px;
+        }
+
+        /* Conclusion */
+        .conclusion {
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--light-orange) 50%, #E8F4F8 100%);
+            padding: 70px 50px;
+            margin: 80px 0 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conclusion:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23FF9F43' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.4;
+        }
+
+        .conclusion h2 {
+            color: var(--deep-blue);
+            font-size: 3em;
+            margin: 0 0 40px;
+            padding: 0;
+        }
+
+        .conclusion h2:before {
+            display: none;
+        }
+
+        .conclusion p {
+            text-align: center;
+            margin: 25px auto;
+            max-width: 850px;
+            font-size: 1.3em;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* Hashtags */
+        .hashtags {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 50px;
+            padding: 35px;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.08) 0%, rgba(255, 234, 167, 0.08) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 234, 167, 0.5);
+        }
+
+        .hashtag {
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--forest-green) 100%);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hashtag:hover {
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.4);
+            letter-spacing: 1px;
+        }
+
+        /* Author Section */
+        .author-section {
+            margin: 80px 50px 60px;
+            padding: 50px;
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.03) 0%, rgba(52, 152, 219, 0.03) 100%);
+            border-radius: 25px;
+            border: 2px solid rgba(255, 234, 167, 0.6);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+        }
+
+        .author-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--forest-green), var(--soft-orange), var(--coral));
+        }
+
+        .author-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: var(--deep-blue);
+            text-align: center;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0 30px;
+        }
+
+        .author-name:before,
+        .author-name:after {
+            content: '✧';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-blue);
+            font-size: 0.7em;
+            animation: spin 10s infinite linear;
+        }
+
+        .author-name:before {
+            left: 0;
+        }
+
+        .author-name:after {
+            right: 0;
+        }
+
+        @keyframes spin {
+            100% { transform: translateY(-50%) rotate(360deg); }
+        }
+
+        .author-title {
+            text-align: center;
+            color: var(--dark-gray);
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .author-story {
+            background: var(--white);
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px var(--shadow);
+            position: relative;
+        }
+
+        .author-story:before {
+            content: '✍️';
+            position: absolute;
+            top: -25px;
+            left: 40px;
+            font-size: 2.5em;
+            background: var(--white);
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 10px 25px var(--shadow);
+            z-index: 2;
+        }
+
+        .author-story h3 {
+            margin: 0 0 25px;
+            padding: 0;
+            border: none;
+            background: none;
+            color: var(--deep-blue);
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .author-story p {
+            margin: 0 0 25px;
+            text-align: left;
+        }
+
+        .author-story em {
+            color: var(--accent-blue);
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--indigo) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 40px;
+            margin-top: 80px;
+            position: relative;
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--success-green) 0%, var(--soft-orange) 50%, var(--secondary-yellow) 100%);
+        }
+
+        footer p {
+            color: var(--white);
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        footer p:last-child {
+            font-size: 1.5em;
+            margin-top: 30px;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .footer-icons a {
+            color: white;
+            font-size: 1.8em;
+            transition: all 0.3s ease;
+        }
+
+        .footer-icons a:hover {
+            color: var(--gold);
+            transform: translateY(-5px) scale(1.2);
+        }
+
+        /* Scroll animations */
+        .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
         }
 
-        .content-section.visible {
+        .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
+        /* Progress indicator */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1000;
         }
 
-        .separator {
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-blue), var(--forest-green), var(--soft-orange));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
             width: 60px;
-            height: 3px;
-            background: var(--gold);
-            margin: 1rem auto;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--forest-green) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
         }
 
-        /* Components */
-        .quote-card,
-        .quote-box {
-            background: var(--glass);
-            border-left: 4px solid var(--gold);
-            padding: 2rem;
-            margin: 3rem 0;
-            font-style: italic;
-            font-size: 1.2rem;
-            position: relative;
-        }
-
-        .quote-box.gold-border {
-            border: 1px solid var(--gold);
-            border-left: none;
-            text-align: center;
-        }
-
-        .image-wrapper {
-            margin: 3rem 0;
-            position: relative;
-            overflow: hidden;
-            border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border: 1px solid #222;
-        }
-
-        .image-wrapper img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.6s ease;
-        }
-
-        .image-wrapper:hover img {
-            transform: scale(1.05);
-        }
-
-        .caption {
-            padding: 1rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--gold);
-            background: rgba(0, 0, 0, 0.8);
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-
-        .image-wrapper:hover .caption {
+        .back-to-top.visible {
+            opacity: 1;
             transform: translateY(0);
         }
 
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            background: var(--dark-grey);
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
         }
 
-        .comparison-table th,
-        .comparison-table td {
-            padding: 1.5rem;
-            border: 1px solid #333;
-            text-align: left;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
         }
 
-        .comparison-table th {
-            color: var(--gold);
-            font-family: var(--font-heading);
+        ::-webkit-scrollbar-track {
+            background: var(--primary-yellow);
         }
 
-        .styled-list li {
-            list-style: none;
-            margin: 1rem 0;
-            font-size: 1.2rem;
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--accent-blue), var(--forest-green), var(--soft-orange));
+            border-radius: 6px;
+            border: 3px solid var(--primary-yellow);
         }
 
-        .marker {
-            color: var(--gold);
-            margin-right: 1rem;
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--soft-orange), var(--forest-green), var(--accent-blue));
         }
 
-        /* Interactive Steps */
-        .steps-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .step-item {
-            background: var(--dark-grey);
-            padding: 2rem;
-            border: 1px solid #333;
-            transition: var(--transition);
-        }
-
-        .step-item:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-        }
-
-        .step-number {
-            font-size: 3rem;
-            color: rgba(255, 255, 255, 0.1);
-            font-weight: bold;
-            display: block;
-            margin-bottom: 1rem;
-        }
-
-        /* Footer & Extras */
-        .hashtags-bar {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin: 5rem 0;
-        }
-
-        .hashtags-bar span {
-            color: var(--gold);
-            font-size: 1.2rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 4rem;
-            border-top: 1px solid #222;
-            color: #666;
-        }
-
-        /* Animations */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                max-width: 95%;
             }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            
+            h1 {
+                font-size: 3.5em;
+            }
+            
+            h2 {
+                font-size: 2.4em;
             }
         }
 
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
             }
 
-            40% {
-                transform: translateY(-10px);
+            h1 {
+                font-size: 2.8em;
             }
 
-            60% {
-                transform: translateY(-5px);
+            h2 {
+                font-size: 2em;
+                padding: 0 30px;
+                margin: 50px 0 25px;
+            }
+
+            h3 {
+                margin: 35px 30px 20px;
+                font-size: 1.6em;
+            }
+
+            p, .highlight, .quote-box, .image-placeholder, .name-list, .author-section, .timeline {
+                margin: 25px 30px;
+            }
+
+            .comparison-table {
+                width: calc(100% - 60px);
+                margin: 30px;
+                font-size: 0.95em;
+            }
+
+            .image-placeholder {
+                height: 250px;
+            }
+
+            .image-placeholder.large {
+                height: 280px;
+            }
+
+            .image-placeholder.small {
+                height: 180px;
+            }
+
+            .hashtags {
+                margin: 30px;
+                padding: 25px;
+            }
+
+            .author-name {
+                font-size: 2.2em;
+            }
+            
+            .timeline:before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: calc(100% - 60px);
+                left: 60px !important;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-year,
+            .timeline-item:nth-child(even) .timeline-year {
+                left: -70px;
+                right: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .container {
+                border-radius: 20px;
+            }
+
+            header {
+                padding: 60px 25px 40px;
+            }
+            
+            .ribbon {
+                right: -40px;
+                padding: 8px 35px;
+                font-size: 0.8em;
+            }
+
+            .image-placeholder {
+                font-size: 1.1em;
+                padding: 20px;
+            }
+            
+            .page-nav {
+                padding: 0 20px;
+                gap: 10px;
+            }
+            
+            .nav-item {
+                padding: 10px 15px;
+                font-size: 0.8em;
             }
         }
     </style>
 </head>
-
 <body>
-    <div class="noise-overlay"></div>
-    <div class="scroll-progress"></div>
-
-    <header class="main-header">
-        <nav>
-            <div class="logo">ANIOMA<span class="highlight-text">TRUTH</span></div>
-            <ul class="nav-links">
-                <li><a href="#proclamation">Proclamation</a></li>
-                <li><a href="#evidence">Evidence</a></li>
-                <li><a href="#ghost-1946">History</a></li>
-                <li><a href="#call-to-wholeness">Action</a></li>
-            </ul>
-        </nav>
-        <div class="hero-content fade-in">
-            <h1>IGBO BU <span class="gold-text">OFU</span></h1>
-            <p class="subtitle">The River Joins, It Does Not Divide.</p>
-            <div class="scroll-indicator">
-                <span>Explore the Truth</span>
-                <div class="arrow">↓</div>
+    <div class="bg-pattern"></div>
+    
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+    
+    <div class="container">
+        <div class="ribbon">ANIOMA TRUTH</div>
+        
+        <header>
+            <div class="header-content">
+                <h1>Igbo Bu Ofu!</h1>
+                <div class="subtitle">The Unbreakable Song of the Anioma: Rediscovering Our Roots, Reclaiming Our Identity</div>
+                
+                <div class="page-nav">
+                    <a href="#proclamation" class="nav-item"><i class="fas fa-bullhorn"></i> Proclamation</a>
+                    <a href="#evidence" class="nav-item"><i class="fas fa-search"></i> Evidence</a>
+                    <a href="#history" class="nav-item"><i class="fas fa-history"></i> History</a>
+                    <a href="#call" class="nav-item"><i class="fas fa-hands"></i> Call to Action</a>
+                    <a href="#conclusion" class="nav-item"><i class="fas fa-flag"></i> Conclusion</a>
+                    <a href="#author" class="nav-item"><i class="fas fa-user"></i> Author</a>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <main class="container">
-        <!-- Content injected from user request -->
-        <section id="proclamation" class="content-section fade-in">
-            <div class="section-header">
+        <main>
+            <section id="proclamation" class="fade-in">
                 <h2>A Proclamation of Blood and Memory</h2>
-                <div class="separator"></div>
-            </div>
-            <p class="lead-text">Let us speak plainly, without the whispering. Let us shout what the river, the soil,
-                and the bones of our ancestors already know: <strong>The Anioma are Igbo.</strong></p>
+                <p>Let us speak plainly, without the whispering. Let us shout what the river, the soil, and the bones of our ancestors already know: <strong>The Anioma are Igbo.</strong></p>
+                
+                <p>Not by political concession. Not by cultural accident. But by the immutable laws of origin—by blood, by tongue, by spirit, and by the undeniable truth that echoes in every name, every prayer, every proverb spoken west of the Niger.</p>
+                
+                <div class="highlight">
+                    <p>Who hears the name <strong>Ngozichukwuka</strong>—"God's blessing is greater"—and dares to say it is not Igbo? What spirit animates that name if not the Igbo spirit? Who stands in the market in Asaba, haggles with a woman from Onitsha in seamless understanding, and claims they are not speaking the same language of commerce, kinship, and life? This is not coincidence. This is inheritance.</p>
+                </div>
+                
+                <div class="image-placeholder large">
+                    <i class="fas fa-unity"></i>
+                    <div>IGBO BU OFU</div>
+                    <div style="font-size: 0.8em; margin-top: 10px;">(Igbo is One.)</div>
+                </div>
+                
+                <p><strong>Igbo bu ofu.</strong> Igbo is one. This is not a slogan for banners; it is the foundational truth upon which our entire reality is built. A tree may have branches that stretch toward different skies, but they draw life from the same root. To deny the root is to condemn the branch to a slow, bewildering death.</p>
+            </section>
 
-            <p>Not by political concession. Not by cultural accident. But by the immutable laws of origin—by blood, by
-                tongue, by spirit, and by the undeniable truth that echoes in every name, every prayer, every proverb
-                spoken west of the Niger.</p>
-
-            <div class="quote-card fade-in-up">
-                <p>Who hears the name <strong>Ngozichukwuka</strong>—"God's blessing is greater"—and dares to say it is
-                    not Igbo? What spirit animates that name if not the Igbo spirit? Who stands in the market in Asaba,
-                    haggles with a woman from Onitsha in seamless understanding, and claims they are not speaking the
-                    same language of commerce, kinship, and life? This is not coincidence. This is inheritance.</p>
-            </div>
-
-            <div class="image-wrapper large tilt-effect">
-                <img src="assets/images/image_0.png" alt="Igbo Bu Ofu concept art" loading="lazy">
-                <div class="caption">IGBO BU OFU (Igbo is One.)</div>
-            </div>
-
-            <p><strong>Igbo bu ofu.</strong> Igbo is one. This is not a slogan for banners; it is the foundational truth
-                upon which our entire reality is built. A tree may have branches that stretch toward different skies,
-                but they draw life from the same root. To deny the root is to condemn the branch to a slow, bewildering
-                death.</p>
-        </section>
-
-        <section id="evidence" class="content-section fade-in">
-            <div class="section-header">
+            <section id="evidence" class="fade-in">
                 <h2>The Evidence That Does Not Lie</h2>
-                <div class="separator"></div>
-            </div>
-
-            <h3>1. The Onomastic Test: Our Names Betray Us</h3>
-            <p>Our names are not just identifiers; they are <strong>testaments of origin</strong>. They are
-                philosophical statements, spiritual contracts, and historical records woven into syllables.</p>
-
-            <ul class="styled-list">
-                <li><span class="marker">✦</span> <strong>Chukwuemeka</strong> – "God has done great"</li>
-                <li><span class="marker">✦</span> <strong>Nwabugwu</strong> – "Child is precious"</li>
-                <li><span class="marker">✦</span> <strong>Akachukwu</strong> – "Hand of God"</li>
-            </ul>
-
-            <p class="text-block">These are not Edo names. They are not Urhobo names. They are <strong>profoundly,
-                    inarguably Igbo names.</strong> They are built on Igbo theophoric elements (<em>Chukwu, Chi,
-                    Chukwuka</em>) and Igbo worldview. You cannot answer to such a name, bear its meaning and destiny,
-                and claim alienation from the people who birthed its meaning. A name is a flag planted in the soil of an
-                identity. Ours fly the Igbo colors.</p>
-
-            <h3>2. The Linguistic Unity: One Language, Many Melodies</h3>
-            <p>Language is the soul of a people made audible. When an Ndokwa elder tells a folktale about the tortoise,
-                and a child from Nsukka understands every twist, every moral, every rhythmic pause—that is not "cultural
-                similarity." That is <strong>shared soul.</strong></p>
-
-            <div class="image-wrapper small glow-effect">
-                <!-- Using image 1 for comparison or map if available, otherwise generic -->
-                <img src="assets/images/image_1.png" alt="Language Comparison" loading="lazy">
-                <div class="caption">The unbreakable bond of language.</div>
-            </div>
-
-            <table class="comparison-table fade-in-up">
-                <thead>
-                    <tr>
-                        <th>English</th>
-                        <th>Enuani (Anioma)</th>
-                        <th>Central Igbo (East)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Welcome</td>
-                        <td>Nnọọ</td>
-                        <td>Nnọọ</td>
-                    </tr>
-                    <tr>
-                        <td>Water</td>
-                        <td>Mmili</td>
-                        <td>Mmiri</td>
-                    </tr>
-                    <tr>
-                        <td>Market</td>
-                        <td>Afịan</td>
-                        <td>Ahịa</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="quote-box gold-border">
-                "Enuani is to Igbo what American English is to British English. Different accent, same language. Anyone
-                claiming otherwise is pushing politics, not linguistics."<br>
-                <cite>– Professor Emeka Nwadiorah, Linguist.</cite>
-            </div>
-
-            <p>The Enuani dialect is not a separate language. It is a dialect of Igbo, as Yoruba spoken in Ibadan is to
-                that spoken in Akure. The core vocabulary—the words for father (<em>nna</em>), mother (<em>nne</em>),
-                life (<em>ndu</em>), and death (<em>ọnwụ</em>)—are identical. The grammatical structure, the proverbs,
-                the tonal system that gives the language its music, are the same.</p>
-
-            <div class="image-wrapper medium parallax-effect">
-                <img src="assets/images/image_2.png" alt="Cultural Unity" loading="lazy">
-                <div class="caption">"How can you understand a people completely, and they you, yet claim to be foreign
-                    to them?"</div>
-            </div>
-
-            <p><strong>How can you understand a people completely, and they you, yet claim to be foreign to
-                    them?</strong> Such a thing does not exist in anthropology or in human feeling. Understanding is the
-                offspring of kinship.</p>
-
-            <h3>3. The Ritual Concord: One Spirit, One Practice</h3>
-            <p>Go to the heart of any Anioma community during the <strong>Iwa Ji</strong> festival. Watch the breaking
-                of the kola nut—the presentation, the invocation, the intricate prayer that calls upon the ancestors and
-                Ala, the Earth Goddess. Then go to Anambra, to Imo, to Ebonyi. You will witness the <strong>same
-                    ritual.</strong></p>
-
-            <div class="cards-grid">
-                <div class="card">
-                    <h4>Iwa Ji</h4>
-                    <p>New Yam Festival</p>
+                
+                <h3>1. The Onomastic Test: Our Names Betray Us</h3>
+                <p>Our names are not just identifiers; they are <strong>testaments of origin</strong>. They are philosophical statements, spiritual contracts, and historical records woven into syllables.</p>
+                
+                <div class="name-list">
+                    <ul>
+                        <li><strong>Chukwuemeka</strong> – "God has done great"</li>
+                        <li><strong>Nwabugwu</strong> – "Child is precious"</li>
+                        <li><strong>Akachukwu</strong> – "Hand of God"</li>
+                        <li><strong>Chinedu</strong> – "God leads"</li>
+                        <li><strong>Ifeanyichukwu</strong> – "Nothing is impossible with God"</li>
+                        <li><strong>Obiajulu</strong> – "The heart is at peace"</li>
+                    </ul>
                 </div>
-                <div class="card">
-                    <h4>Igo Ofo</h4>
-                    <p>Justice Ritual</p>
+                
+                <p>These are not Edo names. They are not Urhobo names. They are <strong>profoundly, inarguably Igbo names.</strong> They are built on Igbo theophoric elements (<em>Chukwu, Chi, Chukwuka</em>) and Igbo worldview. You cannot answer to such a name, bear its meaning and destiny, and claim alienation from the people who birthed its meaning. A name is a flag planted in the soil of an identity. Ours fly the Igbo colors.</p>
+                
+                <h3>2. The Linguistic Unity: One Language, Many Melodies</h3>
+                <p>Language is the soul of a people made audible. When an Ndokwa elder tells a folktale about the tortoise, and a child from Nsukka understands every twist, every moral, every rhythmic pause—that is not "cultural similarity." That is <strong>shared soul.</strong></p>
+                
+                <div class="image-placeholder small">
+                    <i class="fas fa-language"></i>
+                    <div>Language Comparison: Enuani vs Central Igbo</div>
                 </div>
-                <div class="card">
-                    <h4>Ikwa Ala</h4>
-                    <p>Burial Rites</p>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>English</th>
+                            <th>Enuani (Anioma)</th>
+                            <th>Central Igbo (East)</th>
+                            <th>Similarity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Welcome</td>
+                            <td>Nnqo</td>
+                            <td>Nnqo</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>Water</td>
+                            <td>Mmili</td>
+                            <td>Mmiri</td>
+                            <td>95%</td>
+                        </tr>
+                        <tr>
+                            <td>Market</td>
+                            <td>Afja</td>
+                            <td>Ahja</td>
+                            <td>98%</td>
+                        </tr>
+                        <tr>
+                            <td>Father</td>
+                            <td>Nna</td>
+                            <td>Nna</td>
+                            <td>100%</td>
+                        </tr>
+                        <tr>
+                            <td>Mother</td>
+                            <td>Nne</td>
+                            <td>Nne</td>
+                            <td>100%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="quote-box">
+                    "Enuani is to Igbo what American English is to British English. Different accent, same language. Anyone claiming otherwise is pushing politics, not linguistics."
+                    <div class="quote-author">– Professor Emeka Nwadiorah, Linguist</div>
                 </div>
-            </div>
+                
+                <p>The Enuani dialect is not a separate language. It is a dialect of Igbo, as Yoruba spoken in Ibadan is to that spoken in Akure. The core vocabulary—the words for father (<em>nna</em>), mother (<em>nne</em>), life (<em>ndu</em>), and death (<em>ọnwụ</em>)—are identical. The grammatical structure, the proverbs, the tonal system that gives the language its music, are the same.</p>
+                
+                <div class="image-placeholder small">
+                    <i class="fas fa-quote-right"></i>
+                    <div>"How can you understand a people completely, and they you, yet claim to be foreign to them?"</div>
+                </div>
+                
+                <p><strong>How can you understand a people completely, and they you, yet claim to be foreign to them?</strong> Such a thing does not exist in anthropology or in human feeling. Understanding is the offspring of kinship.</p>
+                
+                <h3>3. The Ritual Concord: One Spirit, One Practice</h3>
+                <p>Go to the heart of any Anioma community during the <strong>Iwa Ji</strong> festival. Watch the breaking of the kola nut—the presentation, the invocation, the intricate prayer that calls upon the ancestors and Ala, the Earth Goddess. Then go to Anambra, to Imo, to Ebonyi. You will witness the <strong>same ritual.</strong></p>
+                
+                <div class="image-placeholder">
+                    <i class="fas fa-hands-praying"></i>
+                    <div>Exhibit C: The Rituals of Reality</div>
+                    <div style="font-size: 0.9em; margin-top: 15px;">Iwa Ji (New Yam Festival)<br>Igo Ofo (Justice Ritual)<br>Ikwa Ala (Burial Rites)</div>
+                </div>
+                
+                <p>This is not cultural borrowing. You do not "borrow" the deepest rites of your spiritual existence. These rituals are the ancient, sacred grammar of Igbo spirituality. That we practice them, with the same reverence and the same forms, is the most potent proof that we are not neighbors looking in. <strong>We are family within the house.</strong></p>
+            </section>
 
-            <p>This is not cultural borrowing. You do not "borrow" the deepest rites of your spiritual existence. These
-                rituals are the ancient, sacred grammar of Igbo spirituality. That we practice them, with the same
-                reverence and the same forms, is the most potent proof that we are not neighbors looking in. <strong>We
-                    are family within the house.</strong></p>
-        </section>
+            <section id="history" class="fade-in">
+                <h2>The Historical Timeline: Our Journey</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">Pre-1900</div>
+                        <div class="timeline-content">
+                            <h4>Ancestral Migration</h4>
+                            <p>Anioma people trace ancestry to Igbo heartland migrations across the Niger. Cultural and linguistic ties remain unbroken.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">1946</div>
+                        <div class="timeline-content">
+                            <h4>The 1946 Petition</h4>
+                            <p>Anioma leaders formally petition for reunification with Eastern Region, declaring: "We are culturally, linguistically and historically Igbo."</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">1967-1970</div>
+                        <div class="timeline-content">
+                            <h4>The Biafran War & Trauma</h4>
+                            <p>The Asaba Massacre and war trauma create survival mechanisms of identity distancing as protection.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">1991</div>
+                        <div class="timeline-content">
+                            <h4>Delta State Creation</h4>
+                            <p>Anioma becomes part of Delta State, further administratively separated from Igbo kin in the Southeast.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">Today</div>
+                        <div class="timeline-content">
+                            <h4>The Reawakening</h4>
+                            <p>A new generation seeks to reclaim identity, heal historical wounds, and complete the reunification dream of 1946.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quote-box">
+                    <strong>"We are culturally, linguistically and historically Igbo. We belong with our kin in the East."</strong>
+                    <div class="quote-author">– 1946 Anioma Petition to British Colonial Government</div>
+                </div>
+                
+                <p>They felt the alienation of being administratively severed from their life-source. They recognized the political marginalization that came from being a cultural minority in a foreign regional structure. They begged for reunification. <strong>They knew who they were.</strong></p>
+                
+                <p>We dishonor their memory, their clarity, and their courage when we today stumble over the identity they proclaimed without fear. Their plea from 1946 is not a dusty relic; it is an unanswered letter, a door left swinging open, waiting for us to finally walk through.</p>
+            </section>
 
-        <section id="ghost-1946" class="content-section fade-in">
-            <div class="section-header">
-                <h2>The Ghost of 1946: Our Fathers' Unfinished Cry</h2>
-                <div class="separator"></div>
-            </div>
-            <p>History holds a mirror to our present confusion. In 1946, our grandfathers—unburdened by the trauma of a
-                war yet to come—lifted a collective voice so clear it shattered ambiguity.</p>
-
-            <p>They did not write a polite request. They issued a <strong>declaration of being.</strong></p>
-
-            <div class="quote-box large-text">
-                "We are culturally, linguistically and historically Igbo. We belong with our kin in the East."
-            </div>
-
-            <p>They felt the alienation of being administratively severed from their life-source. They recognized the
-                political marginalization that came from being a cultural minority in a foreign regional structure. They
-                begged for reunification. <strong>They knew who they were.</strong></p>
-
-            <p>We dishonor their memory, their clarity, and their courage when we today stumble over the identity they
-                proclaimed without fear. Their plea from 1946 is not a dusty relic; it is an unanswered letter, a door
-                left swinging open, waiting for us to finally walk through.</p>
-        </section>
-
-        <section id="wound-1967" class="content-section fade-in">
-            <div class="section-header">
+            <section id="wound-1967" class="fade-in">
                 <h2>The Wound of 1967 and the Survival Lie</h2>
-                <div class="separator"></div>
-            </div>
-            <p>Yes, the war changed everything. The Asaba Massacre taught a horrific lesson: that to be openly Igbo on
-                the wrong side of an artificial line could be a death sentence. In the aftermath of such trauma, the
-                psyche does what it must to survive. It learns to hide. It manufactures distance. It whispers,
-                <em>"Perhaps we are not exactly them, for our own safety."</em></p>
+                <p>Yes, the war changed everything. The Asaba Massacre taught a horrific lesson: that to be openly Igbo on the wrong side of an artificial line could be a death sentence. In the aftermath of such trauma, the psyche does what it must to survive. It learns to hide. It manufactures distance. It whispers, <em>"Perhaps we are not exactly them, for our own safety."</em></p>
+                
+                <div class="image-placeholder large">
+                    <i class="fas fa-history"></i>
+                    <div>OVER 1 MILLION LIVES LOST.</div>
+                    <div style="font-size: 0.8em; margin-top: 15px;">The majority from starvation.<br>A generation was decimated.<br>A wound was carved into the collective memory of a people—a story often silenced by history.</div>
+                </div>
+                
+                <p>This survival mechanism is understandable, even heartbreaking. But we must recognize it for what it is: <strong>a protective fiction born of profound pain.</strong> It is a scar, not a feature.</p>
+                
+                <div class="image-placeholder small">
+                    <i class="fas fa-heart-crack"></i>
+                    <div>"To mistake the scar for the original skin is to allow the perpetrators of that trauma a final, lasting victory—the victory of making us deny ourselves."</div>
+                </div>
+                
+                <p>To mistake the scar for the original skin is to allow the perpetrators of that trauma a final, lasting victory—the victory of making us deny ourselves.</p>
+                
+                <p>The war sought to destroy the Igbo spirit. Let us not complete that work with our own hands and tongues.</p>
+            </section>
 
-            <div class="image-wrapper full-width grayscale-hover">
-                <img src="assets/images/image_3.png" alt="Remembrance of 1967" loading="lazy">
-                <div class="caption">OVER 1 MILLION LIVES LOST. A generation was decimated.</div>
-            </div>
-
-            <p>This survival mechanism is understandable, even heartbreaking. But we must recognize it for what it is:
-                <strong>a protective fiction born of profound pain.</strong> It is a scar, not a feature.</p>
-
-            <p>To mistake the scar for the original skin is to allow the perpetrators of that trauma a final, lasting
-                victory—the victory of making us deny ourselves.</p>
-
-            <p>The war sought to destroy the Igbo spirit. Let us not complete that work with our own hands and tongues.
-            </p>
-        </section>
-
-        <section id="political-cost" class="content-section fade-in">
-            <div class="section-header">
-                <h2>The Political Cost of Denial</h2>
-                <div class="separator"></div>
-            </div>
-            <p>In Delta State, we have become permanent political passengers, never drivers. We dilute our voting power,
-                fracture our cultural unity, and bargain from a position of perceived minority weakness. We trade our
-                inherent, powerful belonging to one of Africa's most dynamic and united ethnic nations for a precarious
-                seat at a table where we are forever asked to prove our "Deltan-ness."</p>
-
-            <p>This is not strategy; it is <strong>self-inflicted diminishment.</strong> Imagine, instead, the strength
-                of 1.8 million Anioma voices united with 40 million Eastern Igbo voices. Imagine the cultural, economic,
-                and political powerhouse we would be—not just in Nigeria, but as a global community. Our current path is
-                one of fragmentation. The path of unity is one of unprecedented strength.</p>
-        </section>
-
-        <section id="call-to-wholeness" class="content-section fade-in">
-            <div class="section-header">
+            <section id="call" class="fade-in">
                 <h2>A Call to Wholeness: How We Come Home</h2>
-                <div class="separator"></div>
+                <p>Coming home is not a physical migration. It is a <strong>psychological and cultural reintegration.</strong> It is a return to truth.</p>
+                
+                <div class="highlight">
+                    <p><strong>Speak It Unashamed:</strong> Let us end the code-switching of identity. In Lagos, in Abuja, abroad, the answer to "Where are you from?" is "I am Igbo, from Asaba in Delta State." No hesitation. No explanatory footnote.</p>
+                </div>
+                
+                <div class="highlight">
+                    <p><strong>Teach the Truth:</strong> Let our children learn in schools that Enuani is a dialect of Igbo. Let their history books tell them of the 1946 petition, of Nnebisi's journey from Nteje, of our shared cosmology with our eastern kin.</p>
+                </div>
+                
+                <div class="highlight">
+                    <p><strong>Re-knit the Bonds:</strong> Let us actively rebuild the social, economic, and marital bridges across the Niger. Let Anioma businesses integrate with the Igbo entrepreneurial network. Let festivals be jointly celebrated.</p>
+                </div>
+                
+                <div class="highlight">
+                    <p><strong>Demand Political Recognition:</strong> Let our representatives begin the sober, constitutional work of advocating for our cultural reality to be reflected in administrative reality. Let the ghost of 1946 finally be laid to rest through action.</p>
+                </div>
+            </section>
+
+            <section id="conclusion" class="fade-in">
+                <div class="conclusion">
+                    <h2>Conclusion: The River Joins, It Does Not Divide</h2>
+                    
+                    <div class="image-placeholder">
+                        <i class="fas fa-water"></i>
+                        <div>The River Joins, It Does Not Divide.</div>
+                        <div style="font-size: 0.9em; margin-top: 15px;">The Niger River is not our border. It is our shared landmark.<br>It does not separate Igbo land; it flows through it.<br>The colonial map was a lie. The post-war fear is a burden.<br>The current political arrangement is a cage.</div>
+                    </div>
+                    
+                    <div class="image-placeholder small" style="margin-top: 40px;">
+                        <i class="fas fa-people-group"></i>
+                        <div>We are Anioma.<br>We are Igbo.<br>Any other story is a<br>fiction against nature.</div>
+                    </div>
+                    
+                    <p><strong>Igbo bu ofu.</strong></p>
+                    
+                    <p>We are one people. From Abakaliki to Aboh. From Owerri to Onicha-Olona. The language is one. The blood is one. The destiny is one.</p>
+                    
+                    <p>Our fathers wanted unity. Our grandfathers cried for it in 1946. The very names we answer to demand it. The spirits of our ancestors, who speak to us in the Igbo tongue through divination and dream, expect it.</p>
+                    
+                    <p>Let us no longer be the branch that denies the root. Let us be the branch that strengthens the tree. Let the song we sing—across the waters, from the Good Land to the heartland—be the same song, in the same language, with one unstoppable, united voice.</p>
+                </div>
+            </section>
+
+            <div class="hashtags">
+                <span class="hashtag"><i class="fas fa-hashtag"></i> IgboBuOfu</span>
+                <span class="hashtag"><i class="fas fa-hashtag"></i> AniomaIsIgbo</span>
+                <span class="hashtag"><i class="fas fa-hashtag"></i> BringUsHome</span>
+                <span class="hashtag"><i class="fas fa-hashtag"></i> 1946Remembrance</span>
+                <span class="hashtag"><i class="fas fa-hashtag"></i> OneIgboNation</span>
             </div>
-            <p>Coming home is not a physical migration. It is a <strong>psychological and cultural
-                    reintegration.</strong> It is a return to truth.</p>
 
-            <div class="steps-container">
-                <div class="step-item">
-                    <span class="step-number">01</span>
-                    <h3>Speak It Unashamed</h3>
-                    <p>Let us end the code-switching of identity. In Lagos, in Abuja, abroad, the answer to "Where are
-                        you from?" is "I am Igbo, from Asaba in Delta State." No hesitation. No explanatory footnote.
-                    </p>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">02</span>
-                    <h3>Teach the Truth</h3>
-                    <p>Let our children learn in schools that Enuani is a dialect of Igbo. Let their history books tell
-                        them of the 1946 petition, of Nnebisi's journey from Nteje, of our shared cosmology with our
-                        eastern kin.</p>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">03</span>
-                    <h3>Re-knit the Bonds</h3>
-                    <p>Let us actively rebuild the social, economic, and marital bridges across the Niger. Let Anioma
-                        businesses integrate with the Igbo entrepreneurial network. Let festivals be jointly celebrated.
-                    </p>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">04</span>
-                    <h3>Demand Political Recognition</h3>
-                    <p>Let our representatives begin the sober, constitutional work of advocating for our cultural
-                        reality to be reflected in administrative reality. Let the ghost of 1946 finally be laid to rest
-                        through action.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="conclusion" class="content-section fade-in special-conclusion">
-            <div class="content-overlay"></div>
-            <div class="content-text">
-                <h2>Conclusion: The River Joins, It Does Not Divide</h2>
-
-                <p><strong>Igbo bu ofu.</strong></p>
-
-                <p>We are one people. From Abakaliki to Aboh. From Owerri to Onicha-Olona. The language is one. The
-                    blood is one. The destiny is one.</p>
-
-                <div class="image-wrapper hero-style">
-                    <img src="assets/images/image_4.png" alt="The River Joins" loading="lazy">
-                    <div class="caption">The River Joins, It Does Not Divide.</div>
-                </div>
-
-                <p>Let us no longer be the branch that denies the root. Let us be the branch that strengthens the tree.
-                    Let the song we sing—across the waters, from the Good Land to the heartland—be the same song, in the
-                    same language, with one unstoppable, united voice.</p>
-
-                <div class="signature">
-                    <p>Igbo bu ofu! 🕊️</p>
-                    <span>Share this truth. Speak this truth. Be this truth.</span>
-                </div>
-            </div>
-        </section>
-
-        <div class="hashtags-bar">
-            <span>#IgboBuOfu</span>
-            <span>#AniomaIsIgbo</span>
-            <span>#BringUsHome</span>
-            <span>#1946Remembrance</span>
-        </div>
-
-        <section class="author-section fade-in">
-            <div class="author-card">
+            <section id="author" class="author-section fade-in">
                 <div class="author-name">Uzor Blessing Ngozi</div>
-                <div class="author-title">Writer & Cultural Advocate</div>
-                <p><em>This is not an argument. It is a remembrance.</em></p>
-            </div>
-        </section>
-    </main>
+                <div class="author-title">Writer, Cultural Advocate & Historian</div>
+                
+                <div class="author-story">
+                    <h3>A Story of the Writer</h3>
+                    <p>My journey to understanding began with my name. <strong>Uzor Blessing Ngozi</strong>—four names, each carrying the weight of Igbo history and spirituality. Growing up in Asaba, I spoke Enuani at home, learned English in school, and heard whispers about "our differences" from the East.</p>
+                    
+                    <p>But the whispers never matched the reality. When I visited my cousins in Onitsha, we understood each other perfectly. When we celebrated festivals, our rituals mirrored theirs. When we prayed, we called upon the same Chi.</p>
+                    
+                    <p>The contradiction haunted me. How could we be so alike yet constantly told we were different? My search led me to the 1946 archives, to linguistics research, to elders' stories. I discovered our grandfathers had already answered the question we still struggle with today.</p>
+                    
+                    <p>This article is not just research—it's personal. It's the reconciliation of my Delta State certificate with my Igbo soul. It's the healing of a fracture that should never have existed. I write so my children won't have to explain why their names don't match their story. I write so we can all come home.</p>
+                    
+                    <p><em>This is not an argument. It is a remembrance.</em></p>
+                </div>
+            </section>
+        </main>
 
-    <footer>
-        <p>&copy; 2024 The Anioma Truth Project. All rights reserved.</p>
-    </footer>
+        <footer>
+            <p>© 2024 The Anioma Truth Project. All rights reserved.</p>
+            <div class="footer-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>Share this truth. Speak this truth. Be this truth.</p>
+            <p>Igbo bu ofu! 🕊️</p>
+        </footer>
+    </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Observer for fade-in elements
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+        // Scroll animation for fade-in elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
                     }
                 });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-            document.querySelectorAll('.content-section').forEach(el => observer.observe(el));
-
-            // Smooth Scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
+            };
+            
+            // Initial check
+            fadeInOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+            
+            // Add some interactive elements
+            const imagePlaceholders = document.querySelectorAll('.image-placeholder');
+            imagePlaceholders.forEach(placeholder => {
+                placeholder.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.03) rotate(1deg)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 300);
                 });
             });
-
-            // Logo Parallax/Hover Effect
-            const logo = document.querySelector('.logo');
-            logo.addEventListener('mousemove', (e) => {
-                const x = e.offsetX;
-                const y = e.offsetY;
-                logo.style.transform = `translate(${x / 10}px, ${y / 10}px)`;
+            
+            // Progress bar
+            const progressBar = document.getElementById('progressBar');
+            window.addEventListener('scroll', function() {
+                const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (window.scrollY / windowHeight) * 100;
+                progressBar.style.width = scrolled + '%';
             });
-            logo.addEventListener('mouseleave', () => {
-                logo.style.transform = 'translate(0,0)';
+            
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
             });
-
-            // Scroll Progress
-            window.addEventListener('scroll', () => {
-                const scrolled = window.scrollY;
-                const max = document.body.scrollHeight - window.innerHeight;
-                const progress = (scrolled / max) * 100;
-                // Optionally update a progress bar here if added
+            
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
             });
-
-            console.log("Anioma Truth Project - Loaded Successfully");
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Header color shift on scroll
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * 0.3;
+                header.style.background = `linear-gradient(135deg, 
+                    rgba(${26 + rate / 10}, ${35 + rate / 10}, ${126 - rate / 10}, 0.95) 0%, 
+                    rgba(${40 + rate / 5}, ${53 + rate / 5}, ${147 - rate / 5}, 0.95) 50%,
+                    rgba(${52 + rate / 3}, ${152 + rate / 3}, ${219 - rate / 3}, 0.95) 100%)`;
+            });
+            
+            // Animate hashtags on hover
+            const hashtags = document.querySelectorAll('.hashtag');
+            hashtags.forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    const colors = [
+                        'linear-gradient(135deg, var(--accent-blue) 0%, var(--forest-green) 100%)',
+                        'linear-gradient(135deg, var(--forest-green) 0%, var(--soft-orange) 100%)',
+                        'linear-gradient(135deg, var(--soft-orange) 0%, var(--coral) 100%)',
+                        'linear-gradient(135deg, var(--coral) 0%, var(--accent-blue) 100%)'
+                    ];
+                    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                    this.style.background = randomColor;
+                });
+                
+                tag.addEventListener('mouseleave', function() {
+                    this.style.background = 'linear-gradient(135deg, var(--accent-blue) 0%, var(--forest-green) 100%)';
+                });
+            });
+            
+            // Add typing effect to title
+            const title = document.querySelector('h1');
+            const originalText = title.textContent;
+            title.textContent = '';
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < originalText.length) {
+                    title.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            
+            // Start typing effect after a short delay
+            setTimeout(typeWriter, 1000);
         });
     </script>
 </body>
-
 </html>
