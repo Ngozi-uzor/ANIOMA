@@ -364,6 +364,7 @@
             padding-top: 40px;
             border-top: 2px solid var(--ochre-yellow);
             text-align: center;
+            position: relative;
         }
         
         .author-name {
@@ -404,6 +405,156 @@
             font-size: 1.5rem;
         }
         
+        /* ========== PHOTO SPACES ========== */
+        
+        /* Photo frame - designed to look like archival photographs */
+        .photo-space {
+            margin: 50px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .photo-frame {
+            display: inline-block;
+            background: var(--parchment);
+            padding: 15px;
+            border: 1px solid rgba(139, 69, 19, 0.3);
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.05),
+                inset 0 0 0 1px rgba(245, 235, 220, 0.5);
+            max-width: 100%;
+            position: relative;
+        }
+        
+        .photo-frame::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 1px solid rgba(139, 69, 19, 0.1);
+            pointer-events: none;
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            max-width: 700px;
+            height: 400px;
+            background: 
+                linear-gradient(45deg, 
+                    rgba(139, 69, 19, 0.05) 25%, 
+                    transparent 25%, 
+                    transparent 50%, 
+                    rgba(139, 69, 19, 0.05) 50%, 
+                    rgba(139, 69, 19, 0.05) 75%, 
+                    transparent 75%, 
+                    transparent),
+                rgba(245, 235, 220, 0.8);
+            background-size: 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--soil-dark);
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            position: relative;
+            border: 1px solid rgba(139, 69, 19, 0.2);
+        }
+        
+        .photo-placeholder.small {
+            height: 300px;
+            max-width: 500px;
+        }
+        
+        .photo-placeholder.profile {
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        
+        .photo-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(139, 69, 19, 0.02);
+        }
+        
+        .photo-caption {
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--soil-dark);
+            font-size: 1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 20px;
+        }
+        
+        .photo-icon {
+            font-size: 3rem;
+            color: rgba(139, 69, 19, 0.2);
+            margin-bottom: 15px;
+            font-family: 'Crimson Pro', serif;
+        }
+        
+        /* Photo grid for multiple images */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .photo-grid-item {
+            background: var(--parchment);
+            padding: 10px;
+            border: 1px solid rgba(139, 69, 19, 0.2);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Photo in the author section */
+        .author-photo-container {
+            margin: 30px auto;
+            max-width: 300px;
+        }
+        
+        .author-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: 
+                linear-gradient(45deg, 
+                    rgba(139, 69, 19, 0.05) 25%, 
+                    transparent 25%, 
+                    transparent 50%, 
+                    rgba(139, 69, 19, 0.05) 50%, 
+                    rgba(139, 69, 19, 0.05) 75%, 
+                    transparent 75%, 
+                    transparent),
+                rgba(245, 235, 220, 0.8);
+            background-size: 20px 20px;
+            margin: 0 auto;
+            border: 3px solid rgba(139, 69, 19, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .author-photo::before {
+            content: '📸';
+            font-size: 4rem;
+            color: rgba(139, 69, 19, 0.15);
+        }
+        
         /* Responsive design */
         @media (max-width: 768px) {
             .manuscript-container {
@@ -435,6 +586,24 @@
             .linguistic-table td {
                 padding: 12px 15px;
             }
+            
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .photo-placeholder {
+                height: 300px;
+            }
+            
+            .photo-placeholder.small {
+                height: 250px;
+            }
+            
+            .photo-placeholder.profile {
+                height: 200px;
+                width: 200px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -453,6 +622,15 @@
             .section-title {
                 font-size: 1.5rem;
             }
+            
+            .photo-placeholder {
+                height: 250px;
+            }
+            
+            .author-photo {
+                width: 200px;
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -462,11 +640,44 @@
             <header class="manuscript-header">
                 <h1>Igbo Bu Ofu</h1>
                 <div class="subtitle">The Anioma Testimony: A Chronicle of Identity and Remembrance</div>
+                
+                <!-- PHOTO SPACE 1: Just below the title -->
+                <div class="photo-space">
+                    <div class="photo-frame">
+                        <div class="photo-placeholder">
+                            <div class="photo-icon">[PHOTO]</div>
+                            <div>Placeholder for Anioma cultural landmark or symbol</div>
+                            <div style="font-size: 0.9rem; margin-top: 10px; color: var(--clay-red);">
+                                Suggested: Niger River, traditional gathering, or cultural symbol
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-caption">
+                        The Niger River flows through Igboland, connecting rather than dividing our people.
+                    </div>
+                </div>
+                
                 <div class="section-divider"></div>
             </header>
             
             <main>
                 <h2 class="chapter-title">Chapter I: The Proclamation</h2>
+                
+                <!-- PHOTO SPACE 2: After first chapter content -->
+                <div class="photo-space">
+                    <div class="photo-frame">
+                        <div class="photo-placeholder small">
+                            <div class="photo-icon">[PHOTO]</div>
+                            <div>Anioma community gathering or elders</div>
+                            <div style="font-size: 0.9rem; margin-top: 10px; color: var(--clay-red);">
+                                Suggested: Traditional meeting, elders in discussion
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-caption">
+                        Anioma elders preserving oral history and cultural traditions that affirm our Igbo heritage.
+                    </div>
+                </div>
                 
                 <p>Let us speak plainly, without the whispering. Let us state what the river, the soil, and the bones of our ancestors already know: <strong>The Anioma are Igbo.</strong></p>
                 
@@ -479,6 +690,30 @@
                 <p><strong>Igbo bu ofu.</strong> Igbo is one. This is not a slogan for banners; it is the foundational truth upon which our entire reality is built. A tree may have branches that stretch toward different skies, but they draw life from the same root. To deny the root is to condemn the branch to a slow, bewildering death.</p>
                 
                 <h2 class="chapter-title">Chapter II: The Evidence</h2>
+                
+                <!-- PHOTO SPACE 3: Between Chapter I and II -->
+                <div class="photo-space">
+                    <div class="photo-grid">
+                        <div class="photo-grid-item">
+                            <div class="photo-placeholder" style="height: 250px;">
+                                <div class="photo-icon">[PHOTO]</div>
+                                <div>Traditional attire comparison</div>
+                            </div>
+                            <div class="photo-caption" style="font-size: 0.9rem; padding: 10px;">
+                                Similarities in traditional attire between Anioma and other Igbo regions.
+                            </div>
+                        </div>
+                        <div class="photo-grid-item">
+                            <div class="photo-placeholder" style="height: 250px;">
+                                <div class="photo-icon">[PHOTO]</div>
+                                <div>Cultural artifacts</div>
+                            </div>
+                            <div class="photo-caption" style="font-size: 0.9rem; padding: 10px;">
+                                Shared cultural artifacts and symbols across Igboland.
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
                 <h3 class="section-title">The Onomastic Record</h3>
                 
@@ -503,6 +738,22 @@
                 <h3 class="section-title">The Linguistic Concordance</h3>
                 
                 <p>Language is the soul of a people made audible. When an Ndokwa elder tells a folktale about the tortoise, and a child from Nsukka understands every twist, every moral, every rhythmic pause—that is not "cultural similarity." That is <strong>shared soul.</strong></p>
+                
+                <!-- PHOTO SPACE 4: With linguistic section -->
+                <div class="photo-space">
+                    <div class="photo-frame">
+                        <div class="photo-placeholder small">
+                            <div class="photo-icon">[PHOTO]</div>
+                            <div>Language documentation or gathering</div>
+                            <div style="font-size: 0.9rem; margin-top: 10px; color: var(--clay-red);">
+                                Suggested: Elders teaching language, written materials
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-caption">
+                        Language preservation efforts showing the continuity between Enuani and other Igbo dialects.
+                    </div>
+                </div>
                 
                 <table class="linguistic-table">
                     <thead>
@@ -562,6 +813,22 @@
                 
                 <h2 class="chapter-title">Chapter III: The Historical Record</h2>
                 
+                <!-- PHOTO SPACE 5: Historical documentation -->
+                <div class="photo-space">
+                    <div class="photo-frame">
+                        <div class="photo-placeholder">
+                            <div class="photo-icon">[PHOTO]</div>
+                            <div>Historical documents or archives</div>
+                            <div style="font-size: 0.9rem; margin-top: 10px; color: var(--clay-red);">
+                                Suggested: 1946 petition, archival photographs, historical maps
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-caption">
+                        Archival evidence showing the historical continuity of Anioma with Igbo identity.
+                    </div>
+                </div>
+                
                 <h3 class="section-title">The 1946 Petition</h3>
                 
                 <p>History holds a mirror to our present confusion. In 1946, our grandfathers—unburdened by the trauma of a war yet to come—lifted a collective voice so clear it shattered ambiguity.</p>
@@ -589,6 +856,22 @@
                 
                 <h2 class="chapter-title">Chapter IV: The Call to Remembrance</h2>
                 
+                <!-- PHOTO SPACE 6: Contemporary community -->
+                <div class="photo-space">
+                    <div class="photo-frame">
+                        <div class="photo-placeholder small">
+                            <div class="photo-icon">[PHOTO]</div>
+                            <div>Contemporary Anioma community</div>
+                            <div style="font-size: 0.9rem; margin-top: 10px; color: var(--clay-red);">
+                                Suggested: Modern gatherings, youth events, cultural festivals
+                            </div>
+                        </div>
+                    </div>
+                    <div class="photo-caption">
+                        The living continuity of Anioma culture within the broader Igbo world.
+                    </div>
+                </div>
+                
                 <p>Coming home is not a physical migration. It is a <strong>psychological and cultural reintegration.</strong> It is a return to truth.</p>
                 
                 <div class="historical-document">
@@ -611,7 +894,12 @@
                 
                 <p>Let us no longer be the branch that denies the root. Let us be the branch that strengthens the tree. Let the song we sing—across the waters, from the Good Land to the heartland—be the same song, in the same language, with one unstoppable, united voice.</p>
                 
+                <!-- PHOTO SPACE 7: Author photo -->
                 <div class="colophon">
+                    <div class="author-photo-container">
+                        <div class="author-photo"></div>
+                    </div>
+                    
                     <div class="author-name">Uzor Blessing Ngozi</div>
                     <div class="author-title">Writer & Cultural Historian</div>
                     <p style="margin-top: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
